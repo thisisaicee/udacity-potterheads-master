@@ -1,0 +1,60 @@
+<!--
+    Copyright 2019 Ifeanyichukwu Onyeabor
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    -->
+
+<resources>
+
+    //padding-margin
+    <dimen name="margin_padding_extra_small">4dp</dimen>
+    <dimen name="margin_padding_small">8dp</dimen>
+    <dimen name="margin_padding_medium">16dp</dimen>
+    <dimen name="margin_padding_large">24dp</dimen>
+    <dimen name="margin_padding_extra_large">32dp</dimen>
+
+    //text size
+    <dimen name="text_size_extra_small">10sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_extra_large">28sp</dimen>
+
+    //elevation
+    <dimen name="elevation2dp">2dp</dimen>
+    <dimen name="elevation4dp">4dp</dimen>
+    <dimen name="elevation6dp">6dp</dimen>
+
+    //transition
+    <dimen name="transition2dp">2dp</dimen>
+    <dimen name="transition4dp">4dp</dimen>
+    <dimen name="transition8dp">8dp</dimen>
+
+    //miscellenous
+    <dimen name="share_button_elevation">6dp</dimen>
+    <dimen name="recycler_elevation">2dp</dimen>
+    <dimen name="card_elevation">1dp</dimen>
+    <dimen name="app_bar_elevation">4dp</dimen>
+    <dimen name="card_view_radius">6dp</dimen>
+    <dimen name="detail_image_height">220dp</dimen>
+    <dimen name="title_height">40dp</dimen>
+    <dimen name="share_button_translation">6dp</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+
+
+</resources>
