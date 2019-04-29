@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -44,12 +44,12 @@ public class NetworkUtils {
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 
-    public static List<Article> getArticles(Context context) {
+    public static List<Book> getArticles(Context context) {
         if (!isNetworkAvailable(context)) {
             return new ArrayList<>();
         }
 
-        List<Article> articles = null;
+        List<Book> articles = null;
 
         try {
             articles = parseJSON(getJson(JSON_URL));
@@ -72,15 +72,15 @@ public class NetworkUtils {
         return response.body().string();
     }
 
-    private static List<Article> parseJSON(String jsonString) throws JSONException {
+    private static List<Book> parseJSON(String jsonString) throws JSONException {
         JSONArray results = new JSONArray(jsonString);
 
-        List<Article> articleList = new ArrayList<>();
+        List<Book> articleList = new ArrayList<>();
 
         for (int i = 0; i < results.length(); i++) {
             JSONObject object = results.getJSONObject(i);
 
-            Article article = new Article(object.getInt("id"),
+            Book article = new Book(object.getInt("id"),
                     object.getDouble("aspect_ratio"),
                     object.getString("thumb"),
                     object.getString("author"),

@@ -21,12 +21,12 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 
-@Database(entities = {Article.class}, version = 1, exportSchema = false)
+@Database(entities = {Book.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase appDatabaseInstance;
 
-    public abstract ArticleDao articleDao();
+    public abstract BookDao articleDao();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (appDatabaseInstance == null) {

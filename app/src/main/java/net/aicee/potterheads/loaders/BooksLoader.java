@@ -24,11 +24,11 @@ import com.orhanobut.logger.Logger;
 import java.util.List;
 
 import net.aicee.potterheads.data.AppDatabase;
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 
 
-public class BooksLoader extends AsyncTaskLoader<List<Article>> {
-    private List<Article> taskData = null;
+public class BooksLoader extends AsyncTaskLoader<List<Book>> {
+    private List<Book> taskData = null;
     public BooksLoader(@NonNull Context context) {
         super(context);
     }
@@ -43,7 +43,7 @@ public class BooksLoader extends AsyncTaskLoader<List<Article>> {
     }
 
     @Override
-    public List<Article> loadInBackground() {
+    public List<Book> loadInBackground() {
         try {
             return AppDatabase.getAppDatabase(getContext()).articleDao().getAll();
 
@@ -54,7 +54,7 @@ public class BooksLoader extends AsyncTaskLoader<List<Article>> {
         }
     }
 
-    public void deliverResult(List<Article> data) {
+    public void deliverResult(List<Book> data) {
         taskData = data;
         super.deliverResult(data);
     }

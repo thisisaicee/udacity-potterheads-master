@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import net.aicee.potterheads.R;
 import net.aicee.potterheads.adapters.BookBodyAdapter;
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 import net.aicee.potterheads.loaders.BookLoader;
 import net.aicee.potterheads.utils.GlideApp;
 
@@ -65,7 +65,7 @@ import java.util.List;
 
 
 
-public class BookDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Article> {
+public class BookDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Book> {
     public static String EXTRA_ARTICLE = "article";
     public static final String BUNDLE_RECYCLER_LAYOUT = "recycler_layout";
 
@@ -90,7 +90,7 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
     @BindView(R.id.article_author_date_text)
     TextView authorDateTextView;
 
-    private Article article;
+    private Book article;
     private Unbinder unbinder;
     private boolean isTablet;
     private boolean headerAnimating = false;
@@ -295,7 +295,7 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
         }
     }
 
-    private void shareArticle(Article article) {
+    private void shareArticle(Book article) {
         Intent chooser = ShareCompat.IntentBuilder.from(getActivity())
                 .setType("text/plain")
                 .setText(String.format("%s - %s", article.getTitle(), article.getAuthor()))
@@ -326,19 +326,19 @@ public class BookDetailFragment extends Fragment implements LoaderManager.Loader
 
     @NonNull
     @Override
-    public Loader<Article> onCreateLoader(int id, @Nullable Bundle args) {
+    public Loader<Book> onCreateLoader(int id, @Nullable Bundle args) {
         return new BookLoader(getActivity().getApplicationContext(), getArguments().getInt(EXTRA_ARTICLE));
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<Article> loader, Article data) {
+    public void onLoadFinished(@NonNull Loader<Book> loader, Book data) {
         article = data;
         setUpUi();
         loader.reset();
     }
 
     @Override
-    public void onLoaderReset(@NonNull Loader<Article> loader) {
+    public void onLoaderReset(@NonNull Loader<Book> loader) {
 
     }
 }

@@ -25,28 +25,28 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 @Dao
-public interface ArticleDao {
+public interface BookDao {
 
-    @Query("SELECT * FROM Articles")
-    List<Article> getAll();
+    @Query("SELECT * FROM ARTICLES")
+    List<Book> getAll();
 
-    @Query("SELECT id, aspect_ratio, thumb, author, title, published_date FROM articles")
-    List<Article> getAllExceptBody();
+    @Query("SELECT id, aspect_ratio, thumb, author, title, published_date FROM ARTICLES")
+    List<Book> getAllExceptBody();
 
-    @Query("SELECT * FROM ARTICLES where id LIKE  :id")
-    Article findById(int id);
+    @Query("SELECT * FROM articles where id LIKE  :id")
+    Book findById(int id);
 
-    @Query("SELECT COUNT(*) from ARTICLES")
+    @Query("SELECT COUNT(*) from articles")
     int countArticles();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(List<Article> articles);
+    void insert(List<Book> articles);
 
     @Insert
-    void insert(Article article);
+    void insert(Book article);
 
     @Delete
-    void delete(Article article);
+    void delete(Book article);
 
     @Query("DELETE FROM articles")
     void deleteAll();

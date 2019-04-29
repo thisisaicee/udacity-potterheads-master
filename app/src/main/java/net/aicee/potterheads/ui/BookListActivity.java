@@ -38,13 +38,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import net.aicee.potterheads.R;
 import net.aicee.potterheads.adapters.BooksAdapter;
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 import net.aicee.potterheads.loaders.BooksLoader;
 import net.aicee.potterheads.utils.PotterHeadsIntentService;
 import net.aicee.potterheads.utils.PotterHeadsUtils;
 import net.aicee.potterheads.utils.NetworkUtils;
 
-public class ArticleListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Article>> {
+public class BookListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>> {
 
     public static final String INTENT_EXTRA_ARTICLE_ID = "article_id";
     @BindView(android.R.id.content)
@@ -70,7 +70,7 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
                     Toast.makeText(getApplicationContext(),R.string.no_active_internet,Toast.LENGTH_LONG).show();
                     swipeRefreshLayout.setRefreshing(false);
                 } else
-                    PotterHeadsUtils.startImmediateSync(ArticleListActivity.this);
+                    PotterHeadsUtils.startImmediateSync(BookListActivity.this);
             }
         });
 
@@ -111,12 +111,12 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
 
     @NonNull
     @Override
-    public Loader<List<Article>> onCreateLoader(int id, @Nullable Bundle args) {
+    public Loader<List<Book>> onCreateLoader(int id, @Nullable Bundle args) {
         return new BooksLoader(getApplicationContext());
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<List<Article>> loader, List<Article> data) {
+    public void onLoadFinished(@NonNull Loader<List<Book>> loader, List<Book> data) {
         if (data != null && data.size() > 0) {
             BooksAdapter adapter = new BooksAdapter(this, data);
             recyclerView.setAdapter(adapter);
@@ -128,7 +128,7 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
     }
 
     @Override
-    public void onLoaderReset(@NonNull Loader<List<Article>> loader) {
+    public void onLoaderReset(@NonNull Loader<List<Book>> loader) {
         recyclerView.setAdapter(null);
     }
 }

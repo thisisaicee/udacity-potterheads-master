@@ -37,7 +37,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 @Entity(tableName = "articles")
-public class Article implements Parcelable {
+public class Book implements Parcelable {
     @PrimaryKey
     @ColumnInfo(name = "id")
     private int id;
@@ -65,7 +65,7 @@ public class Article implements Parcelable {
     @Ignore
     private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
 
-    public Article(int id, Double aspectRatio, String thumb, String author, String photo, String title, String body, String publishedDate) {
+    public Book(int id, Double aspectRatio, String thumb, String author, String photo, String title, String body, String publishedDate) {
         this.id = id;
         this.aspectRatio = aspectRatio;
         this.thumb = thumb;
@@ -188,7 +188,7 @@ public class Article implements Parcelable {
         dest.writeString(this.publishedDate);
     }
 
-    protected Article(Parcel in) {
+    protected Book(Parcel in) {
         this.id = in.readInt();
         this.aspectRatio = in.readDouble();
         this.thumb = in.readString();
@@ -199,15 +199,15 @@ public class Article implements Parcelable {
         this.publishedDate = in.readString();
     }
 
-    public static final Parcelable.Creator<Article> CREATOR = new Parcelable.Creator<Article>() {
+    public static final Parcelable.Creator<Book> CREATOR = new Parcelable.Creator<Book>() {
         @Override
-        public Article createFromParcel(Parcel source) {
-            return new Article(source);
+        public Book createFromParcel(Parcel source) {
+            return new Book(source);
         }
 
         @Override
-        public Article[] newArray(int size) {
-            return new Article[size];
+        public Book[] newArray(int size) {
+            return new Book[size];
         }
     };
 }

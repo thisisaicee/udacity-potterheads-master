@@ -36,21 +36,21 @@ import com.bumptech.glide.request.transition.Transition;
 import java.util.List;
 
 import net.aicee.potterheads.R;
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 import net.aicee.potterheads.holders.BooksViewHolder;
 import net.aicee.potterheads.ui.BookDetailActivity;
-import net.aicee.potterheads.ui.ArticleListActivity;
+import net.aicee.potterheads.ui.BookListActivity;
 import net.aicee.potterheads.utils.GlideApp;
 
 public class BooksAdapter extends RecyclerView.Adapter<BooksViewHolder> {
     private static final String TAG = BooksAdapter.class.toString();
 
-    private ArticleListActivity listActivity;
-    private List<Article> articleList;
+    private BookListActivity listActivity;
+    private List<Book> articleList;
 
 
-    public BooksAdapter(ArticleListActivity articleListActivity, List<Article> articles) {
-        this.listActivity = articleListActivity;
+    public BooksAdapter(BookListActivity bookListActivity, List<Book> articles) {
+        this.listActivity = bookListActivity;
         this.articleList = articles;
     }
 
@@ -63,14 +63,14 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksViewHolder> {
 
     @Override
     public void onBindViewHolder(final BooksViewHolder holder, final int position) {
-        final Article article = articleList.get(position);
+        final Book article = articleList.get(position);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(listActivity, BookDetailActivity.class);
 
-                intent.putExtra(ArticleListActivity.INTENT_EXTRA_ARTICLE_ID, article.getId());
+                intent.putExtra(BookListActivity.INTENT_EXTRA_ARTICLE_ID, article.getId());
 
                 if (!listActivity.getResources().getBoolean(R.bool.isTablet)) {
                     ActivityOptionsCompat options = ActivityOptionsCompat.

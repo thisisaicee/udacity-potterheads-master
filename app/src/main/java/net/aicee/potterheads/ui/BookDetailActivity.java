@@ -30,7 +30,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment, BookDetailFragment.newInstance(getIntent().getIntExtra(ArticleListActivity.INTENT_EXTRA_ARTICLE_ID, 0)))
+                    .add(R.id.fragment, BookDetailFragment.newInstance(getIntent().getIntExtra(BookListActivity.INTENT_EXTRA_ARTICLE_ID, 0)))
                     .commit();
         }
 

@@ -23,11 +23,11 @@ import android.support.annotation.NonNull;
 import com.orhanobut.logger.Logger;
 
 import net.aicee.potterheads.data.AppDatabase;
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 
 
-public class BookLoader extends AsyncTaskLoader<Article> {
-    private Article taskData = null;
+public class BookLoader extends AsyncTaskLoader<Book> {
+    private Book taskData = null;
     private int ID;
 
     public BookLoader(@NonNull Context context, int id) {
@@ -45,7 +45,7 @@ public class BookLoader extends AsyncTaskLoader<Article> {
     }
 
     @Override
-    public Article loadInBackground() {
+    public Book loadInBackground() {
         try {
             return AppDatabase.getAppDatabase(getContext()).articleDao().findById(ID);
 
@@ -56,7 +56,7 @@ public class BookLoader extends AsyncTaskLoader<Article> {
         }
     }
 
-    public void deliverResult(Article data) {
+    public void deliverResult(Book data) {
         taskData = data;
         super.deliverResult(data);
     }

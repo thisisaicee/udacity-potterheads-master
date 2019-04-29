@@ -23,13 +23,13 @@ import com.orhanobut.logger.Logger;
 import java.util.List;
 
 import net.aicee.potterheads.data.AppDatabase;
-import net.aicee.potterheads.data.Article;
+import net.aicee.potterheads.data.Book;
 
 public class PotterHeadsTask {
 
     synchronized public static void syncArticles(Context context) {
 
-        List<Article> articles = NetworkUtils.getArticles(context);
+        List<Book> articles = NetworkUtils.getArticles(context);
         if (articles != null && articles.size() > 0) {
             AppDatabase.getAppDatabase(context).articleDao().insert(articles);
         }
