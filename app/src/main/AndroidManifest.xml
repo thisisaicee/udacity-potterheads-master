@@ -28,7 +28,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.BookListActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.BookDetailActivity" />
+
 
         <service
             android:name=".utils.PotterHeadsIntentService"
@@ -48,7 +49,7 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".widget.AppWidget">
+        <receiver android:name=".widget.PotterHeadsWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -56,6 +57,15 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_widget_info" />
+        </receiver>
+        <receiver android:name=".widget.PotterHeadsWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_provider_info" />
         </receiver>
     </application>
 

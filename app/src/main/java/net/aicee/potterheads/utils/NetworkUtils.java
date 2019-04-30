@@ -49,15 +49,15 @@ public class NetworkUtils {
             return new ArrayList<>();
         }
 
-        List<Book> articles = null;
+        List<Book> book = null;
 
         try {
-            articles = parseJSON(getJson(JSON_URL));
+            book = parseJSON(getJson(JSON_URL));
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
 
-        return articles;
+        return book;
     }
 
     private static String getJson(String url) throws IOException {
@@ -75,7 +75,7 @@ public class NetworkUtils {
     private static List<Book> parseJSON(String jsonString) throws JSONException {
         JSONArray results = new JSONArray(jsonString);
 
-        List<Book> articleList = new ArrayList<>();
+        List<Book> bookList = new ArrayList<>();
 
         for (int i = 0; i < results.length(); i++) {
             JSONObject object = results.getJSONObject(i);
@@ -89,9 +89,9 @@ public class NetworkUtils {
                     object.getString("body"),
                     object.getString("published_date"));
 
-            articleList.add(article);
+            bookList.add(article);
         }
 
-        return articleList;
+        return bookList;
     }
 }

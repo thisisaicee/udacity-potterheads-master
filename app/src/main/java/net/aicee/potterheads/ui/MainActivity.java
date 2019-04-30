@@ -44,7 +44,7 @@ import net.aicee.potterheads.utils.PotterHeadsIntentService;
 import net.aicee.potterheads.utils.PotterHeadsUtils;
 import net.aicee.potterheads.utils.NetworkUtils;
 
-public class BookListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>> {
 
     public static final String INTENT_EXTRA_ARTICLE_ID = "article_id";
     @BindView(android.R.id.content)
@@ -70,7 +70,7 @@ public class BookListActivity extends AppCompatActivity implements LoaderManager
                     Toast.makeText(getApplicationContext(),R.string.no_active_internet,Toast.LENGTH_LONG).show();
                     swipeRefreshLayout.setRefreshing(false);
                 } else
-                    PotterHeadsUtils.startImmediateSync(BookListActivity.this);
+                    PotterHeadsUtils.startImmediateSync(MainActivity.this);
             }
         });
 

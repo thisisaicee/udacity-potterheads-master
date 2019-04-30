@@ -29,9 +29,9 @@ public class PotterHeadsTask {
 
     synchronized public static void syncArticles(Context context) {
 
-        List<Book> articles = NetworkUtils.getArticles(context);
-        if (articles != null && articles.size() > 0) {
-            AppDatabase.getAppDatabase(context).articleDao().insert(articles);
+        List<Book> books = NetworkUtils.getArticles(context);
+        if (books != null && books.size() > 0) {
+            AppDatabase.getAppDatabase(context).articleDao().insert(books);
         }
         Logger.d("Sync Books");
     }

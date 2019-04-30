@@ -39,18 +39,18 @@ import net.aicee.potterheads.R;
 import net.aicee.potterheads.data.Book;
 import net.aicee.potterheads.holders.BooksViewHolder;
 import net.aicee.potterheads.ui.BookDetailActivity;
-import net.aicee.potterheads.ui.BookListActivity;
+import net.aicee.potterheads.ui.MainActivity;
 import net.aicee.potterheads.utils.GlideApp;
 
 public class BooksAdapter extends RecyclerView.Adapter<BooksViewHolder> {
     private static final String TAG = BooksAdapter.class.toString();
 
-    private BookListActivity listActivity;
+    private MainActivity listActivity;
     private List<Book> articleList;
 
 
-    public BooksAdapter(BookListActivity bookListActivity, List<Book> articles) {
-        this.listActivity = bookListActivity;
+    public BooksAdapter(MainActivity mainActivity, List<Book> articles) {
+        this.listActivity = mainActivity;
         this.articleList = articles;
     }
 
@@ -70,7 +70,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(listActivity, BookDetailActivity.class);
 
-                intent.putExtra(BookListActivity.INTENT_EXTRA_ARTICLE_ID, article.getId());
+                intent.putExtra(MainActivity.INTENT_EXTRA_ARTICLE_ID, article.getId());
 
                 if (!listActivity.getResources().getBoolean(R.bool.isTablet)) {
                     ActivityOptionsCompat options = ActivityOptionsCompat.
